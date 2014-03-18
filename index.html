@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Mitch ko</title>
+
+        <script type='text/javascript' src='knockout-3.1.0.js'></script>
+        <script type="text/javascript" src ="knockout.validation.js"></script>
+        <script type='text/javascript' src='jquery-2.1.0.min.js'></script>
+        <script type='text/javascript' src='homeView.js'></script>
+        <!-- Latest compiled and minified CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div id="content" style="margin:100px auto; max-width: 400px">
+            <form role="form" data-bind="submit: makeRequest">
+                <p>
+                    What's the weather like in this 
+                    <select data-bind="options: geoTypes, optionsText: 'name', value: geoType, optionsCaption: '...'"></select>
+                </p>
+                
+                <input class="form-control" data-bind="value: searchText, enable: geoType, attr: {placeholder: searchPH}" />
+                
+                <div class="btn-group" style="display: block;">
+                    <button class="btn btn-danger" type="button" data-bind="click: clearText">Clear</button>
+                    <button class="btn btn-success" type="submit">Do it</button>
+                </div>
+            </form>
+
+            <p data-bind="visible: weatherText()">it's looking like <span data-bind="text: weatherText"></span> outside</p>
+        </div>
+    </body>
+</html>
